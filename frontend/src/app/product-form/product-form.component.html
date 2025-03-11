@@ -1,0 +1,23 @@
+<div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input #name type="text" class="form-control" name="name">
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input #price type="value" class="form-control" name="price">
+  </div>
+  <div class="form-group">
+    <label for="categoryId">Kategori ID</label>
+    <input #categoryId type="number" class="form-control" name="categoryId">
+  </div>
+  <div class="form-group">
+    <label for="imageUrl">Görsel URL</label>
+    <input #imageUrl type="text" class="form-control" name="imageUrl">
+  </div>
+
+  <button class="btn btn-success"
+    (click)="addProduct(name.value, price.value, categoryId.value,imageUrl.value); name.value=''; price.value=''; categoryId.value='';imageUrl.value">
+    Save Product
+  </button>
+</div>
