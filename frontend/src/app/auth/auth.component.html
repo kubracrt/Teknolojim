@@ -1,0 +1,45 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 450px;">
+    <h2 class="text-center mb-2">
+      <i class="bi bi-person-circle"></i> {{ isRegisterMode ?"Kayıt Ol":"Giriş Yap"}}
+    </h2>
+
+    <form *ngIf="!isRegisterMode">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="E-posta adresinizi girin">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" class="form-control" name="password" placeholder="Şifrenizi girin">
+      </div>
+      <button class="btn btn-info w-100"> <i class="bi bi-box-arrow-in-right"></i> Giriş Yap</button>
+    </form>
+
+    <form *ngIf="isRegisterMode">
+      <div class="mb-3">
+        <label for="name" class="form-label">Ad</label>
+        <input type="text" class="form-control" name="name" placeholder="Adınızı girin">
+      </div>
+      <div class="mb-3">
+        <label for="surname" class="form-label">Soyad</label>
+        <input type="text" class="form-control" name="surname" placeholder="Soyadınızı girin">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="E-posta adresinizi girin">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" class="form-control" name="password" placeholder="Şifrenizi girin">
+      </div>
+      <button class="btn btn-info w-100"> <i class="bi bi-person-plus"></i> Kayıt Ol</button>
+    </form>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-info" (click)="isRegisterMode = !isRegisterMode">
+        {{ isRegisterMode ? "Zaten üye misiniz? Giriş yapın" : "Hesabınız yok mu? Kayıt olun" }}
+      </button>
+    </div>
+  </div>
+</div>

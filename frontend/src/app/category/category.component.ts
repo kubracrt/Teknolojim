@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../Model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-category',
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
@@ -26,7 +26,7 @@ export class CategoryComponent implements OnInit {
         this.productService.getCategoryProduct(this.categoryName).subscribe(
           (products) => {
             console.log('Ürünler:', products);
-            this.products = products; 
+            this.products = products;
           },
           (error) => {
             console.error('API isteği hatası:', error);

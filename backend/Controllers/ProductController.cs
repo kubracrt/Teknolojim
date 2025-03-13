@@ -28,7 +28,9 @@ namespace Controllers
                 p.Name,
                 p.Price,
                 p.ImageUrl,
+                p.Stock,
                 CategoryName = p.Category.Name
+
 
             }).ToListAsync();
 
@@ -43,6 +45,16 @@ namespace Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public async Task <IActionResult> GetProduct(int id){
+            var product =await _context.Products.FindAsync(id);
+
+            if(product==null){
+                return NotFound("Ürün Bulunamadı");
+            }
+            return Ok(product);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddProducts([FromBody] Product product)
         {
@@ -50,14 +62,13 @@ namespace Controllers
 
             if (lastProduct != null)
             {
-                product.Id = lastProduct.Id + 1;  // id'yi 1 artır
+                product.Id = lastProduct.Id + 1;  
             }
             else
             {
-                product.Id = 1;  // Eğer veritabanında hiç ürün yoksa, ilk ürünün id'sini 1 yap
+                product.Id = 1;  
             }
 
-            // Yeni ürünü ekle
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 

@@ -243,3 +243,4 @@ C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\ref\.Net.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.sourcelink.json

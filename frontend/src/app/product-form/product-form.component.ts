@@ -13,22 +13,18 @@ export class ProductFormComponent {
 
   constructor(private productService: ProductService) { }
 
-  addProduct(name: string, price: string, categoryId: string, imageUrl : string) {
-    const priceNumber = parseFloat(price);
+  addProduct(name: string, price: string, categoryId: string, imageUrl : string, stock:string) {
     const categoryIdNumber = parseInt(categoryId, 10);
-
-    if (isNaN(priceNumber) || isNaN(categoryIdNumber)) {
-      console.log("Geçerli bir fiyat ve kategori ID giriniz!");
-      return;
-    }
+    const stockNumber = parseInt(stock);
 
     const p: Product = {
       id: 0,
       name: name,
-      price: priceNumber,
+      price: parseFloat(price),
       imageUrl: imageUrl,
       categoryId: categoryIdNumber,
-      categoryName: undefined
+      categoryName: undefined,
+      stock: stockNumber
     };
 
     this.productService.saveProduct(p).subscribe(

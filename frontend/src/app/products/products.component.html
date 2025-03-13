@@ -8,6 +8,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Category Name</th>
+            <th>Stock</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -17,6 +18,7 @@
             <td>{{ p.name }}</td>
             <td>{{ p.price }}</td>
             <td>{{ p.categoryName }}</td>
+            <td>{{ p.stock}}</td>
             <td>
               <button class="btn btn-success" (click)="onSelectProduct(p)">Edit</button>
               <button class="btn btn-danger" (click)="deleteProduct(p)">Delete</button>

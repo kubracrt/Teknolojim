@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from './Model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from './Model';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,13 @@ export class ProductService {
 
   getCategoryProduct(categoryName:string):Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+`api/Category/GetProductsCategory/${categoryName}`);
+  }
+
+  getProduct(id:number):Observable<Product>{
+    return this.http.get<Product>(this.baseUrl+`api/Product/getproduct/${id}`);
+  }
+
+  getUsers():Observable<User[]>{
+    return this.http.get<User[]>(this.baseUrl+"api/User/getusers");
   }
 }

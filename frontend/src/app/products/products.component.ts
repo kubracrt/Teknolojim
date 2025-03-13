@@ -14,7 +14,7 @@ import { ProductDetailsComponent } from "../product-details/product-details.comp
 })
 export class ProductsComponent {
   products: Product[] = [];
-  selectedProduct?: Product; 
+  selectedProduct?: Product;
 
   constructor(private productService: ProductService) { }
   ngOnInit(): void {
