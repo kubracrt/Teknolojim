@@ -59,16 +59,7 @@ namespace Controllers
         public async Task<IActionResult> AddProducts([FromBody] Product product)
         {
             var lastProduct = await _context.Products.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
-
-            if (lastProduct != null)
-            {
-                product.Id = lastProduct.Id + 1;  
-            }
-            else
-            {
-                product.Id = 1;  
-            }
-
+            product.Id = lastProduct.Id + 1;
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 

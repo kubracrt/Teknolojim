@@ -146,6 +146,9 @@ C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Microsoft.OpenApi.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Mono.TextTemplating.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Npgsql.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\System.CodeDom.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\System.Composition.AttributedModel.dll
 C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\System.Composition.Convention.dll
@@ -224,6 +227,7 @@ C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.AssemblyInfo.cs
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.csproj.CoreCompileInputs.cache
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.sourcelink.json
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\scopedcss\bundle\.Net.styles.css
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\staticwebassets.development.json
@@ -240,7 +244,3 @@ C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\refint\.Net.dll
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.pdb
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.genruntimeconfig.cache
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\ref\.Net.dll
-C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.sourcelink.json

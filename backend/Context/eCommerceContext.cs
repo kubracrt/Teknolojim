@@ -8,14 +8,17 @@ using Models;
 
 namespace Context
 {
-    public class eCommerceContext :DbContext
+    public class eCommerceContext : DbContext
     {
-        public DbSet<Category> Categories {get;set;}
-        public DbSet<Product> Products {get;set;}
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Roles> Roles { get; set; }
 
-        public DbSet<User>Users{get;set;}
+        public DbSet<User> Users { get; set; }
 
-        public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options) {}
+        public DbSet<UserRoles> UserRoles { get; set; }
+        
+        public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options) { }
 
     }
 }

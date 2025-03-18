@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using backend.Models;
 
 
 namespace Models
@@ -15,6 +16,10 @@ namespace Models
     {
 
         public int Id { get; set; }
+
+        [ForeignKey("UserID")]
+        public User User { get; set; }
+
         public required string Name { get; set; }
         public float Price { get; set; }
       
@@ -24,7 +29,8 @@ namespace Models
 
         public int Stock {get;set;}
 
-        [JsonIgnore] 
+        
+        [ForeignKey("CategoryId")]
 
         public Category? Category { get; set; }
 

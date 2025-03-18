@@ -38,6 +38,15 @@ export class ProductService {
   }
 
   getUsers():Observable<User[]>{
-    return this.http.get<User[]>(this.baseUrl+"api/User/getusers");
+    return this.http.get<User[]>(this.baseUrl+"api/UserControllers/GetUsers");
   }
+
+  saveUser(user: User, roleID: number): Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}api/User/RegisterUser?roleID=${roleID}`, user);
+  }
+
+
+
+
+
 }
