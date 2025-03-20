@@ -7,7 +7,7 @@
       </h2>
     </div>
 
-    <form *ngIf="!isRegisterMode">
+    <form *ngIf="!isRegisterMode" (ngSubmit)="loginUser(email.value,password.value)">
       <div class="relative">
         <label for="email" class="block text-gray-700">
           <i class="bi bi-envelope"></i> E-posta
@@ -74,5 +74,8 @@
         </button>
       </p>
     </div>
+    <p *ngIf="errorMessage" class="text-center text-red-400">{{errorMessage}}</p>
+    <p *ngIf="successMessage" class="text-center text-green-400">
+    </p>
   </div>
 </div>

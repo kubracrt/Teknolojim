@@ -14,6 +14,7 @@ export class DetailComponent implements OnInit {
 
   productId: number | undefined;
   product: Product | undefined;
+
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {

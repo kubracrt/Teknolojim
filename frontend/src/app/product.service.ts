@@ -45,8 +45,15 @@ export class ProductService {
     return this.http.post<User>(`${this.baseUrl}api/User/RegisterUser?roleID=${roleID}`, user);
   }
 
+  loginUser(email:string,password:string):Observable<any>{
+    const user={email,password}
+    return this.http.post<any>(this.baseUrl+"api/User/Login",user);
+  }
 
-
+  getUserRoles(id:number):Observable<any>{
+    return this.http.get<any>(this.baseUrl+`api/UserRoles/GetUserRole/${id}`);
+  }
 
 
 }
+
