@@ -1,38 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 using backend.Models;
-
 
 namespace Models
 {
-
-    [Table("Product")]
+    [Table("Products")]
     public class Product
     {
-
+        [Key]
         public int Id { get; set; }
 
-        [ForeignKey("UserID")]
-        public User User { get; set; }
+        public int? UserId { get; set; }
 
+        [ForeignKey("UserId")]
+        public User? User { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public required string Name { get; set; }
+
+        [Required]
         public float Price { get; set; }
       
-        public string ImageUrl { get; set; } = "";
+        public string ImageUrl { get; set; } = string.Empty;
 
-        public int CategoryId { get; set; }
+        public int Stock { get; set; }
 
-        public int Stock {get;set;}
+        public int CategoryId { get; set; } 
 
-        
         [ForeignKey("CategoryId")]
-
         public Category? Category { get; set; }
-
     }
 }

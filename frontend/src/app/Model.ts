@@ -9,8 +9,10 @@ export class Model {
 }
 
 export interface Product {
+  id:number,
+  userId:number;
   categoryName: any;
-  id: number;
+  userName:any;
   name: string;
   price: number;
   imageUrl: string;

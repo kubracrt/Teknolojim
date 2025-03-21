@@ -22,9 +22,11 @@ namespace Controllers
         {
             var products = await _context.Products
             .Include(p => p.Category)
+            .Include(p => p.User)
             .Select(p => new
             {
                 p.Id,
+                UserName = p.User.Username,
                 p.Name,
                 p.Price,
                 p.ImageUrl,
@@ -46,10 +48,12 @@ namespace Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task <IActionResult> GetProduct(int id){
-            var product =await _context.Products.FindAsync(id);
+        public async Task<IActionResult> GetProduct(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
 
-            if(product==null){
+            if (product == null)
+            {
                 return NotFound("Ürün Bulunamadı");
             }
             return Ok(product);
@@ -59,7 +63,15 @@ namespace Controllers
         public async Task<IActionResult> AddProducts([FromBody] Product product)
         {
             var lastProduct = await _context.Products.OrderByDescending(p => p.Id).FirstOrDefaultAsync();
-            product.Id = lastProduct.Id + 1;
+            if (lastProduct == null)
+            {
+                product.Id = 1;
+            }
+            else
+            {
+                product.Id = lastProduct.Id + 1;
+
+            }
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 

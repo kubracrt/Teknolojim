@@ -52,7 +52,15 @@ export class AuthComponent {
       next: (response) => {
         console.log('Giriş başarılı:', response);
         this.successMessage = "Giriş Başarılı.";
+
         const userId = response.id;
+        const username = response.username;
+
+        localStorage.setItem('userId', userId.toString());
+        localStorage.setItem('username', username);
+
+        console.log('User ID:', userId);
+        console.log('Username:', username);
 
         this.productService.getUserRoles(userId).subscribe((roles: Role[]) => {
           console.log("Kullanıcı Rolleri:", roles);
@@ -61,8 +69,7 @@ export class AuthComponent {
             this.router.navigate([`süperAdmin/${userId}`]);
           } else if (roles.some((r: Role) => r.rolName === "Admin")) {
             this.router.navigate([`admin/${userId}`]);
-          }
-          else {
+          } else {
             this.router.navigate([`user/${userId}`]);
           }
         }, error => {
@@ -76,6 +83,7 @@ export class AuthComponent {
       }
     });
   }
+
 }
 
 export interface Role {
