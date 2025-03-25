@@ -7,8 +7,8 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-detail',
   imports: [CommonModule],
-  templateUrl: './detail.component.html',
-  styleUrl: './detail.component.css'
+  templateUrl: './product-detail.component.html',
+  styleUrl: './product-detail.component.css'
 })
 export class DetailComponent implements OnInit {
 
@@ -24,6 +24,11 @@ export class DetailComponent implements OnInit {
 
       this.productId = id ? +id : undefined;
       console.log('Dönüştürülen Ürün ID:', this.productId);
+
+      console.log("satıcı:",this.product);
+
+      
+
 
       if (this.productId) {
         this.productService.getProduct(this.productId).subscribe(

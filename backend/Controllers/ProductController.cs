@@ -50,12 +50,27 @@ namespace Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProduct(int id)
         {
-            var product = await _context.Products.FindAsync(id);
+            var product = await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.User)
+                .Where(p => p.Id == id)
+                .Select(p => new
+                {
+                    p.Id,
+                    UserName = p.User != null ? p.User.Username : "Bilinmeyen Satıcı",
+                    p.Name,
+                    p.Price,
+                    p.ImageUrl,
+                    p.Stock,
+                    CategoryName = p.Category != null ? p.Category.Name : "Kategori Yok"
+                })
+                .FirstOrDefaultAsync();  
 
             if (product == null)
             {
                 return NotFound("Ürün Bulunamadı");
             }
+
             return Ok(product);
         }
 
@@ -63,15 +78,15 @@ namespace Controllers
         public async Task<IActionResult> GetProductAdmin(int UserId)
         {
             var adminProducts = await _context.Products
-                .Where(p => p.UserId == UserId)  
-                .ToListAsync();  
+                .Where(p => p.UserId == UserId)
+                .ToListAsync();
 
             if (adminProducts == null || !adminProducts.Any())
             {
                 return NotFound("Ürün Bulunamadı");
             }
 
-            return Ok(adminProducts); 
+            return Ok(adminProducts);
         }
 
 
@@ -132,7 +147,7 @@ namespace Controllers
             product.Price = updateProduct.Price;
             product.CategoryId = updateProduct.CategoryId;
             product.ImageUrl = updateProduct.ImageUrl;
-            product.Stock=updateProduct.Stock;
+            product.Stock = updateProduct.Stock;
 
             await _context.SaveChangesAsync();
 

@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { Product } from '../Model';
+import { User } from '../Model';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-super-admin-detail',
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './super-admin-detail.component.html',
   styleUrls: ['./super-admin-detail.component.css']
 })
@@ -21,15 +22,20 @@ export class SuperAdminDetailComponent implements OnInit {
   loading = true;
   error: any;
   selectedProduct: Product | null = null;
+  selectedUser: User | null = null;
 
-  constructor(private userservice: UserService, private productservice: ProductService, private router: Router) { }
+  constructor(
+    private userservice: UserService,
+    private productservice: ProductService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
-    this.loadData();
+    this.loadUser();
     this.loadProducts();
   }
 
-  loadData(): void {
+  loadUser(): void {
     this.loading = true;
     this.error = null;
 
@@ -76,21 +82,15 @@ export class SuperAdminDetailComponent implements OnInit {
   mergeUsersWithRoles(): void {
     this.userWithRoles = this.users.map(user => {
       let rolName = 'Rol Yok';
-      const userRole = this.roles.find(role => {
-        return role.userID === user.id;
-      });
+      const userRole = this.roles.find(role => role.userID === user.id);
 
       if (userRole && userRole.rolName) {
         rolName = userRole.rolName;
       }
 
-      return {
-        ...user,
-        rolName: rolName
-      };
+      return { ...user, rolName };
     });
   }
-
 
   deleteProduct(product: any) {
     this.productservice.deleteProduct(product.id).subscribe({
@@ -101,9 +101,7 @@ export class SuperAdminDetailComponent implements OnInit {
       error: (error) => {
         console.error("Ürün silme hatası:", error);
       }
-
     });
-
   }
 
   onSelectProduct(product: Product) {
@@ -123,6 +121,22 @@ export class SuperAdminDetailComponent implements OnInit {
     });
   }
 
+  onSelectUser(user: User) {
+    console.log("Kullanıcı seçildi:", user);
+    this.selectedUser = { ...user };
+  }
+
+  editUser(user: User) {
+    this.userservice.updateUser(user).subscribe({
+      next: (response) => {
+        console.log("User Güncellendi", response);
+        this.loadUser();
+      },
+      error: (error) => {
+        console.log("Kullanıcı güncelleme hatası:", error);
+      }
+    });
+  }
 
   deleteUser(user: any) {
     this.userservice.deleteUser(user.id).subscribe({
@@ -133,8 +147,7 @@ export class SuperAdminDetailComponent implements OnInit {
       error: (error) => {
         console.error("Kullanıcı silme hatası:", error);
       }
-
-    })
+    });
   }
 
   logout() {

@@ -3,6 +3,7 @@ import { ProductService } from '../services/product.service';
 import { Product } from '../Model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-detail',
@@ -16,7 +17,7 @@ export class AdminDetailComponent implements OnInit {
   selectedProduct: Product | null = null;
 
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,private router:Router) { }
 
   get username(): string {
     return localStorage.getItem("username") || "";
@@ -111,4 +112,10 @@ export class AdminDetailComponent implements OnInit {
       }
     });
   }
+
+  logout() {
+    localStorage.removeItem("token");
+    this.router.navigate(['/login']);
+  }
+
 }

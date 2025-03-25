@@ -1280,7 +1280,7 @@
       "System.Text.Json/9.0.3": {
         "type": "package",
         "compile": {
-          "lib/net9.0/_._": {
+          "lib/net9.0/System.Text.Json.dll": {
             "related": ".xml"
           }
         },
@@ -3912,7 +3912,8 @@
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.3",
       "Npgsql >= 9.0.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.3",
-      "Swashbuckle.AspNetCore >= 7.3.1"
+      "Swashbuckle.AspNetCore >= 7.3.1",
+      "System.Text.Json >= 9.0.3"
     ]
   },
   "packageFolders": {
@@ -4008,6 +4009,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[7.3.1, )"
+          },
+          "System.Text.Json": {
+            "target": "Package",
+            "version": "[9.0.3, )"
           }
         },
         "imports": [

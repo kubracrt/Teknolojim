@@ -17,7 +17,8 @@
           "Microsoft.EntityFrameworkCore.Tools": "9.0.3",
           "Npgsql": "9.0.3",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.3",
-          "Swashbuckle.AspNetCore": "7.3.1"
+          "Swashbuckle.AspNetCore": "7.3.1",
+          "System.Text.Json": "9.0.3"
         },
         "runtime": {
           ".Net.dll": {}

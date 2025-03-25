@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Models
@@ -15,7 +16,9 @@ namespace Models
         public int Id { get; set; }
         public required string Name { get; set; }
 
-        public required List<Product> Products { get; set; }
+        [JsonIgnore]
+
+    public List<Product> Products { get; set; } = new List<Product>();
 
     }
 }

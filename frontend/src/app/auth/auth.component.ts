@@ -18,6 +18,7 @@ export class AuthComponent {
   successMessage: string = " ";
 
   user: User = {
+    id:0,
     username: '',
     email: '',
     password: ''
@@ -30,7 +31,7 @@ export class AuthComponent {
   }
 
   addUser(username: string, email: string, password: string) {
-    const p: User = { username, email, password };
+    const p: User = {id:0,username, email, password };
     const roleID = 3;
 
     this.userService.saveUser(p, roleID).subscribe({

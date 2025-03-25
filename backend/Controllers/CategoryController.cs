@@ -6,12 +6,18 @@ using Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+
 
 namespace Controllers
 {
 
     [ApiController]
     [Route("api/[controller]/[action]")]
+
+
 
     public class CategoryController : ControllerBase
     {
@@ -43,27 +49,32 @@ namespace Controllers
             return Ok(categories);
 
         }
-        
+
         [HttpGet("{categoryName}")]
-        public async  Task<IActionResult> GetProductsCategory(string categoryName ){
-            var category=await _context.Categories.FirstOrDefaultAsync(c=>c.Name==categoryName);
+        public async Task<IActionResult> GetProductsCategory(string categoryName)
+        {
+            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
             if (category == null)
             {
                 return NotFound("Kategori Bulunamadı");
             }
 
-            var products=await _context.Products
-            .Where(p=>p.CategoryId==category.Id)
-            .ToListAsync();
+            var products = await _context.Products
+                .Where(p => p.CategoryId == category.Id)
+                .ToListAsync();
 
-
-            if(!products.Any())
+            if (!products.Any())
             {
                 return NotFound("Ürün Bulunamadı");
             }
 
-            return Ok (products);
+            var options = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                MaxDepth = 32
+            };
 
+            return Ok(products);
         }
 
 

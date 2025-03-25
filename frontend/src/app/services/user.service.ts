@@ -43,6 +43,10 @@ export class UserService {
     return this.http.delete<void>(this.baseUrl +`api/User/DeleteUser/${id}`);
   }
 
+  updateUser(user:User):Observable<User>{
+    return this.http.put<User>(this.baseUrl+`api/User/PutUser/${user.id}`, user);
+  }
+
 
 
 }

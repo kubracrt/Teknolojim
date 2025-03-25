@@ -17,8 +17,14 @@ namespace Context
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserRoles> UserRoles { get; set; }
+
+        public DbSet<ShoppingCard> ShoppingCards {get;set;}
         
         public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options) { }
 
+    }
+
+    public class ShoppingCard
+    {
     }
 }

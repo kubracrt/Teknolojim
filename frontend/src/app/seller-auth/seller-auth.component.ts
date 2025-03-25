@@ -18,6 +18,7 @@ export class SellerAuthComponent {
 
   addSeller(username: string, email: string, password: string) {
     const p: User = {
+      id:0,
       username: username,
       email: email,
       password: password
