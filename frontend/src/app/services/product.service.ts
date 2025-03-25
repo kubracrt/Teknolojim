@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Product } from './Model';
+import { Product } from '../Model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './Model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +24,6 @@ export class ProductService {
     return this.http.put<Product>(this.baseUrl+`api/Product/PutProduct/${product.id}`, product);
   }
 
-
   deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(this.baseUrl + `api/Product/deleteproduct/${id}`);
   }
@@ -38,23 +36,11 @@ export class ProductService {
     return this.http.get<Product>(this.baseUrl+`api/Product/getproduct/${id}`);
   }
 
-  getUsers():Observable<User[]>{
-    return this.http.get<User[]>(this.baseUrl+"api/UserControllers/GetUsers");
+  getAdminProduct(userId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseUrl + `api/Product/GetProductAdmin/${userId}`);
   }
 
-  saveUser(user: User, roleID: number): Observable<User> {
-    return this.http.post<User>(`${this.baseUrl}api/User/RegisterUser?roleID=${roleID}`, user);
-  }
-
-  loginUser(email:string,password:string):Observable<any>{
-    const user={email,password}
-    return this.http.post<any>(this.baseUrl+"api/User/Login",user);
-  }
-
-  getUserRoles(id:number):Observable<any>{
-    return this.http.get<any>(this.baseUrl+`api/UserRoles/GetUserRole/${id}`);
-  }
-
+ 
 
 }
 

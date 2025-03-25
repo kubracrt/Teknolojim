@@ -59,6 +59,22 @@ namespace Controllers
             return Ok(product);
         }
 
+        [HttpGet("{UserId}")]
+        public async Task<IActionResult> GetProductAdmin(int UserId)
+        {
+            var adminProducts = await _context.Products
+                .Where(p => p.UserId == UserId)  
+                .ToListAsync();  
+
+            if (adminProducts == null || !adminProducts.Any())
+            {
+                return NotFound("Ürün Bulunamadı");
+            }
+
+            return Ok(adminProducts); 
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddProducts([FromBody] Product product)
         {
@@ -116,6 +132,7 @@ namespace Controllers
             product.Price = updateProduct.Price;
             product.CategoryId = updateProduct.CategoryId;
             product.ImageUrl = updateProduct.ImageUrl;
+            product.Stock=updateProduct.Stock;
 
             await _context.SaveChangesAsync();
 

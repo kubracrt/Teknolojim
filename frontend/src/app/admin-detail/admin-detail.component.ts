@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { Product } from '../Model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class AdminDetailComponent implements OnInit {
 
-  products: Product[] | undefined;
-  selectedProduct: Product | null = null; 
+  products: Product[] = [];
+  selectedProduct: Product | null = null;
 
 
   constructor(private productService: ProductService) { }
@@ -27,7 +27,14 @@ export class AdminDetailComponent implements OnInit {
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe({
+    const userId = localStorage.getItem("userId");
+
+    if (!userId) {
+      console.error("User ID bulunamadı!");
+      return;
+    }
+
+    this.productService.getAdminProduct(parseInt(userId)).subscribe({
       next: (products) => {
         this.products = products;
       },
@@ -36,6 +43,7 @@ export class AdminDetailComponent implements OnInit {
       }
     });
   }
+
 
   addProduct(name: string, price: string, categoryId: string, imageUrl: string, stock: string): void {
     const adminId = localStorage.getItem("userId");

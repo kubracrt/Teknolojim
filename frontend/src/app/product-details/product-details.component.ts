@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../Model';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
-  @Input() selectedProduct!: Product;  
+  @Input() selectedProduct!: Product;
 
   constructor(private productService: ProductService) {}
 

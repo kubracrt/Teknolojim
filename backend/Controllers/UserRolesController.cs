@@ -39,6 +39,7 @@ namespace backend.Controllers
             await _context.SaveChangesAsync();
             return Ok(userRoles);
         }
+        
 
         [HttpGet]
         public async Task<IActionResult> GetUserRoles()
@@ -92,6 +93,28 @@ namespace backend.Controllers
                 return NotFound("Kullanıcı Bulunamadı");
             }
             return Ok(userRoles);
+        }
+
+        
+        [HttpPut("{UserID}")]
+        
+        public async Task<IActionResult> PutUserRoles(int UserID,UserRoles updateUserRoles){
+         if(UserID!=updateUserRoles.UserID){
+              return BadRequest("ID ler uyuşmuyor");
+         }
+
+         var userRoles= await _context.UserRoles.FindAsync(UserID);
+         if(userRoles==null){
+            return BadRequest("Ürün Bulunamadı");
+         }
+
+         userRoles.RoleID=updateUserRoles.RoleID;
+
+         await _context.SaveChangesAsync();
+
+         return Ok(new { message = "Rol güncelleme başarılı", userRoles });
+
+
         }
 
 

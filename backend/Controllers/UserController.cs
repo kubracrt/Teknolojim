@@ -30,7 +30,8 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var users = await _context.Users.ToListAsync();
+            var users = await _context.Users.
+            ToListAsync();
             if (users.Count > 0)
             {
                 return Ok(users);
@@ -42,9 +43,11 @@ namespace backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUser(int id){
-            var user= await _context.Users.FindAsync(id);
-            if(user==null){
+        public async Task<IActionResult> GetUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
                 return NotFound("Kullanıcı Bulunamadı");
             }
             return Ok(user);
@@ -141,6 +144,42 @@ namespace backend.Controllers
         {
             string hashedInput = HashPassword(inputPassword);
             return hashedInput == hashedPassword;
+        }
+
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound("User Bulunamadı");
+            }
+
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Ürün Silindi", user });
+        }
+
+        [HttpPut("{id}")]
+        public async Task <IActionResult> PutUser(int id, User updateUser){
+            if(id !=updateUser.ID){
+                return BadRequest("ID ler uyuşmuyor");
+            }
+
+            var user=await _context.Users.FindAsync(id);
+            if(user==null){
+                return BadRequest("Ürün Bulunamadı");
+            }
+
+            user.Username=updateUser.Username;
+            user.Email=updateUser.Email;
+            user.Password=updateUser.Password;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new {message="User Güncelleme başarılı",user});
         }
     }
 }

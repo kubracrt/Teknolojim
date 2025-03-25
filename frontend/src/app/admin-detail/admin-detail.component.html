@@ -81,6 +81,10 @@
         <label for="imageUrl" class="text-info">Görsel URL</label>
         <input [(ngModel)]="selectedProduct.imageUrl" type="text" class="form-control" name="imageUrl">
       </div>
+      <div class="form-group">
+        <label for="stock" class="text-info">Stock</label>
+        <input [(ngModel)]="selectedProduct.stock" type="text" class="form-control" name="stock">
+      </div>
 
       <button class="btn btn-success w-100 py-2 mt-3" (click)="editProduct(selectedProduct)">Ürünü Düzenle</button>
     </div>
