@@ -20,11 +20,11 @@ namespace Context
 
         public DbSet<ShoppingCard> ShoppingCards {get;set;}
         
+        public DbSet<Order> Orders {get;set;}
+        
         public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options) { }
 
     }
 
-    public class ShoppingCard
-    {
-    }
+
 }

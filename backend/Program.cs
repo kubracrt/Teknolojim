@@ -1,7 +1,14 @@
 using Microsoft.EntityFrameworkCore;
-using Context;  
+using Context;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Redis bağlantısı oluşturma
+var redisConnection = ConnectionMultiplexer.Connect("localhost");
+var database = redisConnection.GetDatabase();
+
 
 // PostgreSQL bağlantı dizesini al ve eCommerceContext'i yapılandır
 builder.Services.AddDbContext<eCommerceContext>(options =>
@@ -41,3 +48,5 @@ app.MapControllers();
 
 // Uygulama çalıştır
 app.Run();
+
+
