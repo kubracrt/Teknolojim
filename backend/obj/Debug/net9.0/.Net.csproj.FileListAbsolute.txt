@@ -263,3 +263,5 @@ C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\refint\.Net.dll
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.pdb
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\.Net.genruntimeconfig.cache
 C:\Users\kubra\Desktop\.Net\backend\obj\Debug\net9.0\ref\.Net.dll
+C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\kubra\Desktop\.Net\backend\bin\Debug\net9.0\StackExchange.Redis.dll
