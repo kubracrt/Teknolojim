@@ -70,6 +70,20 @@ namespace Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetTopProducts()
+        {
+            var topProducts = await _productService.GetTop10Products();
+            if (topProducts != null && topProducts.Count > 0)
+            {
+                return Ok(topProducts);
+            }
+            else
+            {
+                return NotFound("Ürün Bulunamadı");
+            }
+        }
+
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetProductAdmin(int userId)
         {

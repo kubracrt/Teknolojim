@@ -81,7 +81,6 @@ public class OrderConsumerService : IHostedService
                                 Console.WriteLine($"Sonuç mesajı gönderildi: {deliveryReport.TopicPartitionOffset}");
                         });
 
-                        // ⬇️ DbContext'i burada scope içinde alıyoruz
                         using (var scope = _scopeFactory.CreateScope())
                         {
                             var dbContext = scope.ServiceProvider.GetRequiredService<eCommerceContext>();

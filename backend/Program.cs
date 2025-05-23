@@ -12,9 +12,13 @@ using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Redis Bağlantısı
-builder.Services.AddSingleton<IConnectionMultiplexer>(
-    ConnectionMultiplexer.Connect("localhost:6379"));
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect("localhost:6379")); // redis adresiniz
+
+builder.Services.AddScoped<IDatabase>(sp =>
+{
+    var multiplexer = sp.GetRequiredService<IConnectionMultiplexer>();
+    return multiplexer.GetDatabase();
+});
 
 // PostgreSQL bağlantı dizesini al ve eCommerceContext'i yapılandır
 builder.Services.AddDbContext<eCommerceContext>(options =>
@@ -73,3 +77,4 @@ app.MapControllers();
 
 // Uygulama çalıştır
 app.Run();
+

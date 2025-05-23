@@ -18,7 +18,7 @@ export class HomeComponent {
   constructor(private productService: ProductService, private shoppingCardService: ShoppingCardService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(
+    this.productService.getTop10Products().subscribe(
       products => {
         this.products = products;
       });

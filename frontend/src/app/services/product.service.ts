@@ -39,8 +39,10 @@ export class ProductService {
   getAdminProduct(userId: number): Observable<Product[]> {
     return this.http.get<Product[]>(this.baseUrl + `api/Product/GetProductAdmin/${userId}`);
   }
-
+  
+  getTop10Products():Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl + "api/Product/GetTopProducts");
+  }
  
-
 }
 

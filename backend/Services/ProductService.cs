@@ -14,9 +14,14 @@ namespace Services
     {
         private readonly eCommerceContext _context;
 
-        public ProductService(eCommerceContext context)
+        private readonly IDatabase _redisDatabase;
+
+        private readonly string _redisKey = "TopProducts";
+
+        public ProductService(eCommerceContext context, IDatabase redisDatabase)
         {
             _context = context;
+            _redisDatabase = redisDatabase;
         }
 
 
@@ -69,6 +74,29 @@ namespace Services
                 return null;
             }
             return product;
+        }
+
+        public async Task<List<ProductDto>> GetTop10Products()
+        {
+            string cachedData = await _redisDatabase.StringGetAsync(_redisKey);
+
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                var cachedProducts = JsonSerializer.Deserialize<List<ProductDto>>(cachedData);
+                Console.WriteLine("Veri Redis'ten alındı.");
+                return cachedProducts;
+            }
+
+            var top10product = await _context.ProductDtos
+                .FromSqlRaw("SELECT * FROM get_top_10_products()")
+                .ToListAsync();
+
+            Console.WriteLine("Veri PostgreSQL'den alındı.");
+
+            string jsonData = JsonSerializer.Serialize(top10product);
+            await _redisDatabase.StringSetAsync(_redisKey, jsonData, TimeSpan.FromMinutes(30));
+
+            return top10product;
         }
 
 
