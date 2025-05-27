@@ -41,7 +41,7 @@ export class ProductService {
   }
   
   getTop10Products():Observable<Product[]>{
-    return this.http.get<Product[]>(this.baseUrl + "api/Product/GetTopProducts");
+    return this.http.get<Product[]>(this.baseUrl + "api/Product/GetHomePage");
   }
  
 }

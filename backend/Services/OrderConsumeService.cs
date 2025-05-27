@@ -6,22 +6,26 @@ using Confluent.Kafka;
 using Microsoft.Extensions.Configuration;
 using System.Net.Mail;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.DependencyInjection; 
+using Microsoft.Extensions.DependencyInjection;
 using Entities;
 using Context;
+using Microsoft.AspNetCore.SignalR;
 
 public class OrderConsumerService : IHostedService
 {
     private readonly string _bootstrapServers;
     private readonly string _topicConsume = "order-events";
     private readonly string _topicProduce = "processed-orders";
+
+    private readonly IHubContext<OrderHub> _hubContext;
     private readonly IConsumer<Ignore, string> _consumer;
     private readonly IProducer<Null, string> _producer;
     private readonly IServiceScopeFactory _scopeFactory;
 
-    public OrderConsumerService(IConfiguration config, IServiceScopeFactory scopeFactory)
+    public OrderConsumerService(IConfiguration config, IServiceScopeFactory scopeFactory, IHubContext<OrderHub> hubContext)
     {
         _scopeFactory = scopeFactory;
+        _hubContext = hubContext;
         _bootstrapServers = config.GetValue<string>("Kafka:BootstrapServers") ?? "localhost:9094";
 
         var consumerConfig = new ConsumerConfig
@@ -70,6 +74,19 @@ public class OrderConsumerService : IHostedService
                             Status = mailSent ? "Mail gönderildi" : "Mail gönderilemedi",
                             Timestamp = DateTime.UtcNow
                         };
+                        Console.WriteLine("SignalR mesajı gönderiliyor...");
+
+                        try
+                        {
+                            await _hubContext.Clients.All.SendAsync("ReceiveOrder", resultMessage);
+                            Console.WriteLine("SignalR mesajı gönderildi. receivedOrder: " + resultMessage);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"SignalR mesaj gönderim hatası: {ex.Message}");
+                        }
+
 
                         var jsonResult = JsonSerializer.Serialize(resultMessage);
 
@@ -160,3 +177,17 @@ public class OrderConsumerService : IHostedService
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

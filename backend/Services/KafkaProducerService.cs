@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Confluent.Kafka; 
 using Confluent.Kafka.Admin;
+using Entities;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 
@@ -105,21 +107,21 @@ public class KafkaProducerService
         }
     }
 
-    public async Task SendProductViewAsync(string userId, string productId, string productName, string productImageUrl)
+    public async Task SendProductViewAsync(string productId, string productName, string productImageUrl)
     {
         try
         {
-            var viewEvent = new
+            var viewEvent = new ProductViewEvent
             {
-                UserId = userId,
+                
                 ProductId = productId,
                 ProductName = productName,
                 ProductImageUrl = productImageUrl,
                 ViewedAt = DateTime.UtcNow
             };
 
-            var message = JsonSerializer.Serialize(viewEvent);
-            var result = await _producer.ProduceAsync("user-view-events", new Message<Null, string> { Value = message });
+            var jsonResult = JsonSerializer.Serialize(viewEvent);
+            var result = await _producer.ProduceAsync("user-view-events", new Message<Null, string> { Value = jsonResult });
 
             Console.WriteLine($"Kullanıcı görüntüleme olayı Kafka'ya gönderildi: {result.TopicPartitionOffset}");
             

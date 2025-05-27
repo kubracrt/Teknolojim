@@ -14,14 +14,12 @@ namespace Controllers
         private readonly ProductService _productService;
         private readonly KafkaProducerService _kafkaProducerService;
         private readonly RedisProductService _redisProductService;
-        private readonly ViewEventService _viewEventService;
 
-        public ProductController(ProductService productService, RedisProductService redisProductService, KafkaProducerService kafkaProducerService, ViewEventService viewEventService)
+        public ProductController(ProductService productService, RedisProductService redisProductService, KafkaProducerService kafkaProducerService)
         {
             _productService = productService;
             _redisProductService = redisProductService;
             _kafkaProducerService = kafkaProducerService;
-            _viewEventService = viewEventService;
         }
 
         [HttpGet]
@@ -56,12 +54,9 @@ namespace Controllers
 
             if (product != null)
             {
-                var userId = User?.Identity?.Name ?? "anonymous";
+                
 
-                await _kafkaProducerService.SendProductViewAsync(userId, product.Id.ToString(), product.Name, product.ImageUrl);
-
-                await _viewEventService.LogViewEventAsync(userId, product.Id, product.Name, product.ImageUrl);
-
+                await _kafkaProducerService.SendProductViewAsync(product.Id.ToString(), product.Name, product.ImageUrl);
                 return Ok(product);
             }
             else
@@ -70,19 +65,19 @@ namespace Controllers
             }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetTopProducts()
-        {
-            var topProducts = await _productService.GetTop10Products();
-            if (topProducts != null && topProducts.Count > 0)
-            {
-                return Ok(topProducts);
-            }
-            else
-            {
-                return NotFound("Ürün Bulunamadı");
-            }
-        }
+        // [HttpGet]
+        // public async Task<IActionResult> GetTopProducts()
+        // {
+        //     var topProducts = await _productService.GetTop10Products();
+        //     if (topProducts != null && topProducts.Count > 0)
+        //     {
+        //         return Ok(topProducts);
+        //     }
+        //     else
+        //     {
+        //         return NotFound("Ürün Bulunamadı");
+        //     }
+        // }
 
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetProductAdmin(int userId)

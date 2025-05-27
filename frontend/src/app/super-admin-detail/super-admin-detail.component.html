@@ -120,10 +120,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let processed of processedOrders" class="border-b hover:bg-gray-50">
+          <tr *ngFor="let processed of receivedOrders" class="border-b hover:bg-gray-50">
             <td class="px-4 py-2">{{ processed.orderNumber }}</td>
             <td class="px-4 py-2">{{ processed.status }}</td>
-            <td class="px-4 py-2">{{ processed.createdDate | date:'short' }}</td>
+            <td class="px-4 py-2">{{ processed.timestamp | date:'short' }}</td>
           </tr>
         </tbody>
       </table>
@@ -143,13 +143,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of orderView" class="border-b hover:bg-gray-50">
-            <td class="px-4 py-2">{{ order.productName }}</td>
+          <tr *ngFor="let viewEvent of viewData" class="border-b hover:bg-gray-50">
+            <td class="px-4 py-2">{{ viewEvent.ProductName }}</td>
             <td class="px-4 py-2">
-              <img [src]="order.imageUrl" alt="product image" class="w-10 h-10 object-cover rounded mx-auto" />
+              <img [src]="viewEvent.ProductImageUrl" alt="product image" class="w-10 h-10 object-cover rounded mx-auto" />
             </td>
-            <td class="px-4 py-2">{{ order.productId }}</td>
-            <td class="px-4 py-2">{{ order.viewedAt | date:'short' }}</td>
+            <td class="px-4 py-2">{{ viewEvent.ProductId }}</td>
+            <td class="px-4 py-2">{{ viewEvent.viewedAt | date:'short' }}</td>
           </tr>
         </tbody>
       </table>

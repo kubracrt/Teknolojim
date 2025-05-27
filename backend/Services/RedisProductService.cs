@@ -6,7 +6,6 @@ using Entities;
 
 namespace Services
 {
-
     public class RedisProductService
     {
         private readonly IConnectionMultiplexer _redis;

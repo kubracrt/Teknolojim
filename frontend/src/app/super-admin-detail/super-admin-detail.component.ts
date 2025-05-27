@@ -6,8 +6,7 @@ import { Router } from '@angular/router';
 import { Order, Product } from '../Model';
 import { User } from '../Model';
 import { FormsModule } from '@angular/forms';
-import { ProcessedOrdersService } from '../services/processedOrders.service';
-import { OrderViewService } from '../services/orderView.service';
+import { SignalService } from '../services/signalR.service';
 
 @Component({
   selector: 'app-super-admin-detail',
@@ -17,10 +16,11 @@ import { OrderViewService } from '../services/orderView.service';
 })
 export class SuperAdminDetailComponent implements OnInit {
 
+  receivedOrders: any[] = [];
+  viewData: any[] = [];
   users: any[] = [];
   roles: any[] = [];
   processedOrders: any[] = [];
-  orderView: any[] = [];
   userWithRoles: any[] = [];
   products: any[] = [];
   loading = true;
@@ -31,16 +31,29 @@ export class SuperAdminDetailComponent implements OnInit {
   constructor(
     private userservice: UserService,
     private productservice: ProductService,
-    private processedOrdersService: ProcessedOrdersService,
-    private orderViewService : OrderViewService,
+    private signalService: SignalService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {
     this.loadUser();
     this.loadProducts();
-    this.loadProcessedOrders();
-    this.loadOrderView();
+    this.listenToSignalRViewEvent();
+    this.listenToSignalROrder();
+  }
+
+  listenToSignalROrder(): void {
+    this.signalService.orderData.subscribe((orders) => {
+      this.receivedOrders = orders;
+      console.log('Dashboard için güncel mail yollama listesi:', this.receivedOrders);
+    });
+  }
+
+  listenToSignalRViewEvent(): void {
+    this.signalService.viewEvent.subscribe((view_Data) => {
+      this.viewData = view_Data;
+      console.log('Dashboard için güncel order view listesi:', this.viewData);
+    });
   }
 
   loadUser(): void {
@@ -59,38 +72,9 @@ export class SuperAdminDetailComponent implements OnInit {
     });
   }
 
-  loadProcessedOrders (): void {
-    this.processedOrdersService.getProcessedOrders().subscribe({
-      next: (processedOrders) => {
-        this.processedOrders = processedOrders;
-        console.log('Processed Orders Yüklendi:', processedOrders);
-      },
-      error: (error) => {
-        console.error('Processed Orders yüklenirken hata oluştu:', error);
-        this.error = error;
-        this.loading = false;
-        
-      }
-    });
-  }
-
-  loadOrderView(): void {
-    this.orderViewService.getOrderView().subscribe({
-      next: (orderView) => {
-        this.orderView = orderView;
-        console.log('Order View Yüklendi:', orderView);
-      },
-      error: (error) => {
-        console.error('Order View yüklenirken hata oluştu:', error);
-        this.error = error;
-        this.loading = false;
-      }
-    });
-    
-  }
 
   loadRoles(): void {
-    this.userservice.getUserRoles(  ).subscribe({
+    this.userservice.getUserRoles().subscribe({
       next: (roles) => {
         this.roles = roles;
         this.mergeUsersWithRoles();

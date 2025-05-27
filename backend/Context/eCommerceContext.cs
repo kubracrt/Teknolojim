@@ -24,7 +24,7 @@ namespace Context
         
         public DbSet<ProcessedOrders> ProcessedOrders {get;set;}
 
-        public DbSet<ViewEvents> ViewEvents {get;set;}
+        public DbSet<ProductViewEvent> ProductViewEvents {get;set;}
         
         
         public eCommerceContext(DbContextOptions<eCommerceContext> options) : base(options) { }
