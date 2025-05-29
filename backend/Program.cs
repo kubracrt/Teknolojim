@@ -27,14 +27,6 @@ builder.Services.AddScoped<RedisProductService>();
 builder.Services.AddScoped<ShoppingCardService>();
 builder.Services.AddScoped<KafkaProducerService>();
 
-
-// Hosted service (arka plan servisi)
-builder.Services.AddHostedService<OrderConsumerService>();
-builder.Services.AddHostedService<OrderViewConsumerService>();
-
-// SignalR
-builder.Services.AddSignalR();
-
 // Swagger ve API Explorer
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -60,9 +52,6 @@ var app = builder.Build();
 // Middleware kullanımları
 app.UseCors("CorsPolicy");
 
-//Hub'ler
-app.MapHub<OrderHub>("/orderhub");
-app.MapHub<ProductViewHub>("/productviewhub");
 
 if (app.Environment.IsDevelopment())
 {

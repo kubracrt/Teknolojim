@@ -45,16 +45,18 @@ export class SuperAdminDetailComponent implements OnInit {
   listenToSignalROrder(): void {
     this.signalService.orderData.subscribe((orders) => {
       this.receivedOrders = orders;
-      console.log('Dashboard için güncel mail yollama listesi:', this.receivedOrders);
+      console.log('Dashboard için güncelsipariş/mailer gönderim listesi:', this.receivedOrders);
     });
   }
 
+
   listenToSignalRViewEvent(): void {
-    this.signalService.viewEvent.subscribe((view_Data) => {
-      this.viewData = view_Data;
-      console.log('Dashboard için güncel order view listesi:', this.viewData);
+    this.signalService.viewEvent.subscribe((viewEvent) => {
+      this.viewData = viewEvent;
+      console.log('Dashboard için güncel ürün görüntüleme listesi:', this.viewData);
     });
   }
+
 
   loadUser(): void {
     this.loading = true;

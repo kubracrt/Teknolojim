@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
-import { Console } from 'console';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -26,7 +25,7 @@ export class SignalService {
 
   private startOrderHubConnection(): void {
     this.orderHubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5248/orderhub')
+      .withUrl('http://localhost:5081/orderhub',{ withCredentials: true })
       .withAutomaticReconnect()
       .build();
 
@@ -48,7 +47,7 @@ export class SignalService {
 
   private startProductViewHubConnection(): void {
     this.productViewHubConnection = new signalR.HubConnectionBuilder()
-      .withUrl('http://localhost:5248/productviewhub')
+      .withUrl('http://localhost:5081/productviewhub',{ withCredentials: true })
       .withAutomaticReconnect()
       .build();
 
@@ -57,7 +56,7 @@ export class SignalService {
       .then(() => console.log('SignalR productviewhub bağlantısı başladı'))
       .catch(err => console.error('SignalR productviewhub bağlantı hatası:', err));
 
-    this.productViewHubConnection.on('ReceiveViewEvent', (viewData: any) => {
+    this.productViewHubConnection.on('ReceiveProductView', (viewData: any) => {
       console.log('SignalR ile view verisi alındı:', viewData);
 
       const currentView = this.viewEvent.value;
