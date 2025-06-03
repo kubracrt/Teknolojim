@@ -1,0 +1,24 @@
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.AssemblyInfoInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.AssemblyInfo.cs
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.csproj.CoreCompileInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.sourcelink.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\bin\Debug\net9.0\SharedModel.deps.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\bin\Debug\net9.0\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\bin\Debug\net9.0\SharedModel.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\refint\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\SharedModel.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\SharedModel\obj\Debug\net9.0\ref\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\bin\Debug\net9.0\SharedModel.deps.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\bin\Debug\net9.0\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\bin\Debug\net9.0\SharedModel.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.AssemblyInfoInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.AssemblyInfo.cs
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.csproj.CoreCompileInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.sourcelink.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\refint\SharedModel.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\SharedModel.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\SharedModel\obj\Debug\net9.0\ref\SharedModel.dll

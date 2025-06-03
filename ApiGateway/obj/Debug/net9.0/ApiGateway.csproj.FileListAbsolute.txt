@@ -1,0 +1,56 @@
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.AssemblyInfoInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.AssemblyInfo.cs
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.CoreCompileInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.sourcelink.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\appsettings.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.staticwebassets.endpoints.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.exe
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.deps.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.runtimeconfig.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\ApiGateway.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\System.IO.Hashing.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\bin\Debug\net9.0\Yarp.ReverseProxy.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.AssemblyReference.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\scopedcss\bundle\ApiGateway.styles.css
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.Up2Date
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\refint\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ApiGateway.genruntimeconfig.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim\ApiGateway\obj\Debug\net9.0\ref\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\appsettings.Development.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\appsettings.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.staticwebassets.endpoints.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.exe
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.deps.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.runtimeconfig.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\ApiGateway.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\System.IO.Hashing.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\bin\Debug\net9.0\Yarp.ReverseProxy.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.AssemblyReference.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.AssemblyInfoInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.AssemblyInfo.cs
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.CoreCompileInputs.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.sourcelink.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\scopedcss\bundle\ApiGateway.styles.css
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.csproj.Up2Date
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\refint\ApiGateway.dll
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.pdb
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ApiGateway.genruntimeconfig.cache
+C:\Users\kubra\OneDrive\Desktop\Teknolojim-master (1)\Teknolojim-master\ApiGateway\obj\Debug\net9.0\ref\ApiGateway.dll

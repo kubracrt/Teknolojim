@@ -1,0 +1,30 @@
+
+CREATE OR REPLACE PROCEDURE sum_orders()
+LANGUAGE plpgsql
+AS $$
+DECLARE
+finished BOOL DEFAULT FALSE;
+result DECIMAL (15,2) DEFAULT 0;
+crTotal DECIMAL(15,2) DEFAULT 0;
+crOrderDate DATETIME;
+curOrder CURSOR FOR SELECT freight, order_date FROM 'orders';
+CONTINUE HANDLER FOR NOT FOUND finished := TRUE;
+
+OPEN curOrder
+getOrder:LOOP
+
+FETCH curOrder INTO crTotal,crOrderDate;
+IF finished =TRUE THEN
+LEAVE getOrder;
+END IF;
+
+result := result + crTotal;
+
+END LOOP getOrder;
+
+CLOSE curOrder
+RAISE NOTICE 'Result: %',result;
+BEGIN
+END;
+AS
+$$
